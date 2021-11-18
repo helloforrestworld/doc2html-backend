@@ -1,10 +1,10 @@
 import path from 'path';
 import Koa from 'koa';
-import Router from '@koa/router';
 import logger from 'koa-logger';
 import koaBody from 'koa-body';
 import koaStatic from 'koa-static';
 import koaMount from 'koa-mount';
+import cors from 'koa2-cors';
 
 import uploadRouter from './routes/upload';
 
@@ -12,6 +12,7 @@ const app = new Koa();
 
 app.use(logger());
 app.use(koaMount('/public', koaStatic(path.join(__dirname, '../public'))));
+app.use(cors());
 app.use(
   koaBody({
     multipart: true,
