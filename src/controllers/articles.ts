@@ -44,6 +44,10 @@ class ArticleCtl {
     const article = await new ArticleModel({ ...reqBody }).save();
     ctx.body = article;
   }
+
+  async update(ctx: any) {
+
+  }
 }
 
 export default new ArticleCtl();
